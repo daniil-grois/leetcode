@@ -1,6 +1,8 @@
 import inspect
 import timeit
 import sys
+import string
+import random
 
 
 class Solution1:
@@ -87,12 +89,29 @@ class Solution4:
         return max_
 
 
+class Solution5:
+    """Runtime: 48 ms, faster than 96.59% of Python3 online submissions for Longest Substring Without Repeating ...
+        Memory Usage: 14.3 MB, less than 54.63% of Python3 online submissions for Longest Substring Without Rep ..."""
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        substring = ''
+        left = right = 0
+        max_ = 0
+        for char in s:
+            if char in substring:
+                left += substring.index(char) + 1
+            substring = s[left: right+1]
+            max_ = len(substring) if len(substring) > max_ else max_
+            right += 1
+        return max_
+
+
 # Test Case
-long_string = "saaSDasfagfSDAFdsafasfsdasd"
+string_length = 1000
+long_string = ''.join(random.choices(string.ascii_uppercase + string.digits, k=string_length))
 
 # timeit params
 timeit_repeat = 1
-timeit_numbers = 100
+timeit_numbers = 1000
 
 
 if __name__ == '__main__':
