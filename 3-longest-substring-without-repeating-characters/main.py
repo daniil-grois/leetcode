@@ -57,6 +57,21 @@ class Solution2:
         return max_len_substr
 
 
+class Solution3:
+    """Runtime: 48 ms, faster than 96.59% of Python3 online submissions for Longest Substring Without Repeat ...
+        Memory Usage: 14.3 MB, less than 80.42% of Python3 online submissions for Longest Substring Without Repeat ...
+    """
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        substring = ''
+        max_ = 0
+        for char in s:
+            if char in substring:
+                substring = substring.split(char)[1]
+            substring += char
+            max_ = len(substring) if len(substring) > max_ else max_
+        return max_
+
+
 # Test Case
 long_string = "saaSDasfagfSDAFdsafasfsdasd"
 

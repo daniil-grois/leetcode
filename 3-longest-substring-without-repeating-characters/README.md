@@ -1,1 +1,2 @@
 https://leetcode.com/problems/longest-substring-without-repeating-characters/
+https://leetcode.com/problems/longest-substring-without-repeating-characters/discuss/1379657/Python.-Fastest-(48-ms-faster-than-96.59)-easy-to-understand-short-solution.
